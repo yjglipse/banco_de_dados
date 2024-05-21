@@ -52,7 +52,12 @@ SELECT AVG(ano_publicacao)
 FROM Livros
 WHERE disponivel = TRUE;
 
-select MAX(ano_publicacao), MIN(ano_publicacao) FROM livros;
+SELECT * FROM livros WHERE(ano_publicacao) IN (
+select MAX(ano_publicacao) FROM livros
+UNION 
+SELECT MIN(ano_publicacao) FROM livros);
+
+
 
 SELECT * FROM Livros
 ORDER BY ano_publicacao DESC;
